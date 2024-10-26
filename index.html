@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Card Details Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+<div class="wrapper">
+<img src="rss/bg-main-desktop.png" alt="" class="main-bg-desk">
+<img src="rss/bg-main-mobile.png" alt="" class="main-bg-mobile">
+
+<section class="main-container">
+
+    <div class="cards-img-container">   
+
+        <div class="front-card">
+            <img src="rss/bg-card-front.png" alt="" class="front-card-img">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="30" viewBox="0 0 54 30" fill="none">
+                <ellipse cx="15.0932" cy="15" rx="15.0932" ry="15" fill="white"/>
+                <path d="M53.5 15C53.5 18.4489 50.6859 21.25 47.2081 21.25C43.7302 21.25 40.9161 18.4489 40.9161 15C40.9161 11.5511 43.7302 8.75 47.2081 8.75C50.6859 8.75 53.5 11.5511 53.5 15Z" stroke="white"/>
+              </svg>
+            <p class="card-number">0000 0000 0000 0000</p>
+            <p class="card-name">Card Holder Name</p>
+            <p class="card-exp">00/00</p>  
+            
+        </div>  
+        
+
+        <div class="back-card">
+            <img src="rss/bg-card-back.png" alt="" class="back-card-img"> 
+            <p class="card-cvv">000</p> 
+        </div>  
+
+    </div>
+
+    <!--form credit card -->
+    <div class="form-credit-card">
+        <form action="index.php" method="post" class="form">
+            <div class="form-group">
+                <label for="card-holder">Cardholder Name</label>
+                <input type="text" name="card-holder" id="card-holder" class="form-control" required placeholder="e.g. Jane Appleseed">
+            </div>
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" name="card-number" id="card-number" class="form-control" required placeholder="e.g. 1234 5678 9123 0000" oninput="formatCardNumber(this)" maxlength="19">
+            </div>
+            <div class="form-group">
+                <label for="expire-date">Exp. Date (MM/YY) <span>aa</span>    CVV</label>
+                <div class="expire-inputs">
+                    <input type="text" name="expire-month" id="expire-month" class="form-control" pattern="[0-9+]" inputmode="numeric" maxlength="2" placeholder="MM" required>
+                    <input type="text" name="expire-year" id="expire-year" class="form-control"  pattern="[0-9+]" inputmode="numeric" maxlength="2" placeholder="YY" required>
+                    <input type="text" name="cvv" id="cvv" class="form-control" pattern="[0-9+]" inputmode="numeric" maxlength="4" required placeholder="e.g. 123">
+                </div>
+            </div>
+        </form>
+        <button type="submit" id="submit" class="btn btn-primary">Confirm</button>
+    </div>
+    <div class="thanks hide">
+        <!--We’ve added your card details-->
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="40" fill="url(#paint0_linear_0_524)"/>
+            <path d="M28 39.9199L36.0801 48L52.0801 32" stroke="white" stroke-width="3"/>
+            <defs>
+              <linearGradient id="paint0_linear_0_524" x1="-23.0143" y1="11.5071" x2="1.03143e-06" y2="91.5071" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6348FE"/>
+                <stop offset="1" stop-color="#610595"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        <h2>THANK YOU!</h2>
+        <p>We’ve added your card details</p>
+        <button class="btn btn-primary" id="back">Continue</button>
+    </div>
+</section>
+
+
+ 
+</div>
+<script src="script.js"></script>         
+</body>
+</html>
